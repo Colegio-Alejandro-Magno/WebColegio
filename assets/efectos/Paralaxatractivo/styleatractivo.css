@@ -1,0 +1,102 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+html, body {
+  overflow: hidden;
+}
+
+.CAMbackground {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  height: 130vh;
+  position: fixed;
+  width: 100%;
+  transform: translateY(30vh);
+  transition: all 1.2s cubic-bezier(0.22, 0.44, 0, 1);
+}
+.CAMbackground:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.CAMbackground:first-child {
+  background-image: url(./SEGURIDAD.jpg);
+  transform: translateY(-15vh);
+}
+.CAMbackground:first-child .content-wrapper {
+  transform: translateY(15vh);
+}
+.CAMbackground:nth-child(2) {
+  background-image: url(./LABORATORIO.jpg);
+}
+.CAMbackground:nth-child(3) {
+  background-image: url(./COCINA\ 2.jpg);
+}
+
+/* Set stacking context of slides */
+.CAMbackground:nth-child(1) {
+  z-index: 3;
+}
+
+.CAMbackground:nth-child(2) {
+  z-index: 2;
+}
+
+.CAMbackground:nth-child(3) {
+  z-index: 1;
+}
+
+.CAMcontent-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-flow: column nowrap;
+  color: #fff;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  transform: translateY(40vh);
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transition: all 1.7s cubic-bezier(0.22, 0.44, 0, 1);
+}
+.CAMcontent-title {
+  font-size: 12vh;
+  line-height: 1.4;
+}
+
+.CAMbackground.up-scroll {
+  transform: translate3d(0, -15vh, 0);
+}
+.CAMbackground.up-scroll .CAMcontent-wrapper {
+  transform: translateY(15vh);
+}
+.CAMbackground.up-scroll + .CAMbackground {
+  transform: translate3d(0, 30vh, 0);
+}
+.CAMbackground.up-scroll + .CAMbackground .content-wrapper {
+  transform: translateY(30vh);
+}
+
+.CAMbackground.down-scroll {
+  transform: translate3d(0, -130vh, 0);
+}
+.background.down-scroll .content-wrapper {
+  transform: translateY(40vh);
+}
+.background.down-scroll + .background:not(.down-scroll) {
+  transform: translate3d(0, -15vh, 0);
+}
+.background.down-scroll + .background:not(.down-scroll) .content-wrapper {
+  transform: translateY(15vh);
+}

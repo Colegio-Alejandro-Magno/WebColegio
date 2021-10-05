@@ -1,0 +1,99 @@
+/* The version of Bourbon used in this Pen was 4.* */
+@import "bourbon";
+
+@mixin background-cover{
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.accordion--home{
+	margin: 0;
+	padding: 0;
+	@include clearfix;
+	width: 100%;
+	img{
+		display:block;max-width:100%;
+	}
+	li.slide{
+		position: relative;
+		width: calc(100%/4);
+		display: block;
+		overflow:hidden;
+		float: left;
+		transition: all 0.5s;
+		height: 100vh;
+		@include background-cover;
+		&:after{
+			content: "";
+			display: none;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0,0,0,0.6);
+			opacity: 0;
+			left: 0;
+			top: 0;
+			transition: opacity 0.5s;
+      z-index: 10;
+      position: absolute;
+		}
+	}
+	&:hover li.slide {
+		width: calc(50%/3);
+		&:after{
+			opacity: 1;
+      display: block;
+		}
+	}
+	li.slide{
+		img{
+			display: block;
+		}
+		&:hover{
+			width: 50%;
+			&:after{
+				opacity: 0;
+        display: none;
+			}
+		}
+	}
+	.image--content{
+		position: absolute;
+		top: 60%;
+		left: 0;
+		text-align: center;
+		width: 100%;
+    display: block;
+		h2{
+			text-align: center;
+			color: white;
+			text-transform: uppercase;
+			font-weight: bold;
+      display: inline-block;
+      line-height: 1;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+      &:before, &:after{
+        content: "";
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+      }
+      &:before{
+        margin-bottom: 15px;
+      }
+      &:after{
+        margin-top: 10px;
+      }
+      &:after{}
+		}
+		ul{
+			margin: 0;
+			padding: 0;
+			li{
+				display: inline-block;
+				clear: right;
+			}
+		}
+	}
+}

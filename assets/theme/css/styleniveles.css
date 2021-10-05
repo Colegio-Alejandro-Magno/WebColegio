@@ -1,0 +1,95 @@
+.accordion--home {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.accordion--home::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.accordion--home img {
+  display: block;
+  max-width: 100%;
+}
+.accordion--home li.slide {
+  position: relative;
+  width: calc(100%/4);
+  display: block;
+  overflow: hidden;
+  float: left;
+  transition: all 0.5s;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.accordion--home li.slide:after {
+  content: "";
+  display: none;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  left: 0;
+  top: 0;
+  transition: opacity 0.5s;
+  z-index: 10;
+  position: absolute;
+}
+.accordion--home:hover li.slide {
+  width: calc(50%/3);
+}
+.accordion--home:hover li.slide:after {
+  opacity: 1;
+  display: block;
+}
+.accordion--home li.slide img {
+  display: block;
+}
+.accordion--home li.slide:hover {
+  width: 50%;
+}
+.accordion--home li.slide:hover:after {
+  opacity: 0;
+  display: none;
+}
+.accordion--home .image--content {
+  position: absolute;
+  top: 60%;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+.accordion--home .image--content h2 {
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.accordion--home .image--content h2:before, .accordion--home .image--content h2:after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.accordion--home .image--content h2:before {
+  margin-bottom: 15px;
+}
+.accordion--home .image--content h2:after {
+  margin-top: 10px;
+}
+.accordion--home .image--content ul {
+  margin: 0;
+  padding: 0;
+}
+.accordion--home .image--content ul li {
+  display: inline-block;
+  clear: right;
+}
